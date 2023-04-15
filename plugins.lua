@@ -118,7 +118,7 @@ local plugins = {
     "kdheepak/lazygit.nvim",
     -- lazy = false,
     keys = {
-      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "open LazyGit" },
     },
   },
   -- CODE HELPER FUNCTIONS
