@@ -11,8 +11,13 @@ M.general = {
   n = {
     ["<C-u>"] = { "<C-u>zz^", "Move page up", },
     ["<C-d>"] = { "<C-d>zz^", "Move page down", },
-    ["J"] = { "mzJ`z", "delete endline enter", },
+    ["J"] = { "mzJ`z", "Delete endline Enter", },
+    ["<leader>d"] = { '"_d', "Void delete", },
   },
+  v = {
+    ["J"] = { ":m '>+1<CR>gv=gv", "Move selected block down", },
+    ["K"] = { ":m '<-2<CR>gv=gv", "Move selected block up", },
+  }
 }
 
 M.Harpooon = {
