@@ -18,15 +18,15 @@ local plugins = {
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" }, -- Required
-      { -- Optional
+      {                            -- Optional
         "williamboman/mason.nvim",
       },
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { "hrsh7th/nvim-cmp" }, -- Required
+      { "hrsh7th/nvim-cmp" },     -- Required
       { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      { "L3MON4D3/LuaSnip" }, -- Required
+      { "L3MON4D3/LuaSnip" },     -- Required
     },
   },
   {
@@ -133,6 +133,15 @@ local plugins = {
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
+    },
+  },
+  -- TAILWIND STYLE
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
+      },
     },
   },
 }

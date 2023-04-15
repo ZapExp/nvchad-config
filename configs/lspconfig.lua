@@ -6,6 +6,7 @@ local servers = {
   "lua_ls",
   "prismals",
   "tailwindcss",
+  "cssls"
 }
 
 local lsp = require("lsp-zero").preset {}
