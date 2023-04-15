@@ -7,6 +7,14 @@ M.disabled = {
   },
 }
 
+M.general = {
+  n = {
+    ["<C-u>"] = { "<C-u>zz^", "Move page up", },
+    ["<C-d>"] = { "<C-d>zz^", "Move page down", },
+    ["J"] = { "mzJ`z", "delete endline enter", },
+  },
+}
+
 M.Harpooon = {
   n = {
     ["<leader>ha"] = {
