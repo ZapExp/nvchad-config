@@ -108,5 +108,12 @@ local plugins = {
   --   end,
   --   config = function(_, opts) require("mini.indentscope").setup(opts) end,
   -- },
+  {
+    'kdheepak/lazygit.nvim',
+    -- lazy = false,
+    keys = {
+      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "lazyGit" },
+    },
+  }
 }
 return plugins
