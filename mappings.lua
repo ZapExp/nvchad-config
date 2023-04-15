@@ -9,8 +9,8 @@ M.disabled = {
 
 M.general = {
   n = {
-    ["<C-u>"] = { "<C-u>zz^", "Move page up" },
-    ["<C-d>"] = { "<C-d>zz^", "Move page down" },
+    ["<C-u>"] = { "<C-u>zz0", "Move page up" },
+    ["<C-d>"] = { "<C-d>zz0", "Move page down" },
     ["n"] = { "nzzzv", "Next search term" },
     ["N"] = { "Nzzzv", "Previous search term" },
   },
