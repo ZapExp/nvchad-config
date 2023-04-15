@@ -1,0 +1,62 @@
+local M = {}
+
+M.disabled = {
+  n = {
+    ["<leader>h"] = "",
+    ["<leader>v"] = "",
+  },
+}
+
+M.Harpooon = {
+  n = {
+    ["<leader>ha"] = {
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      "add file to Harpooon",
+    },
+    ["<leader>ht"] = {
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      "toggle quick menu",
+    },
+    ["<leader>hf"] = {
+      function()
+        require("harpoon.ui").nav_file(1)
+      end,
+      "Go to file 1",
+    },
+    ["<leader>hg"] = {
+      function()
+        require("harpoon.ui").nav_file(2)
+      end,
+      "Go to file 2",
+    },
+    ["<leader>hh"] = {
+      function()
+        require("harpoon.ui").nav_file(3)
+      end,
+      "Go to file 3",
+    },
+    ["<leader>hj"] = {
+      function()
+        require("harpoon.ui").nav_file(4)
+      end,
+      "Go to file 4",
+    },
+    ["<leader>hn"] = {
+      function()
+        require("harpoon.ui").nav_next()
+      end,
+      "Go to file 4",
+    },
+    ["<leader>hp"] = {
+      function()
+        require("harpoon.ui").nav_prev()
+      end,
+      "Go to file 4",
+    },
+  },
+}
+return M
