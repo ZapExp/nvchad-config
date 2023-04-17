@@ -5,8 +5,8 @@ M.ui = {
   changed_themes = {
     catppuccin = {
       base_30 = {
-        grey = "#808080", --line numbers color
-        grey_fg = "#6b6b6b", -- commentary color
+        grey = "#808088", --line numbers color
+        grey_fg = "#6b6b78", -- commentary color
       },
     },
   },
