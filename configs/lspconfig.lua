@@ -6,32 +6,74 @@ local servers = {
   "lua_ls",
   "prismals",
   "tailwindcss",
-  "cssls"
+  "cssls",
 }
 
-local lsp = require("lsp-zero").preset {}
-
-lsp.on_attach(function(_, bufnr)
-  lsp.default_keymaps { buffer = bufnr }
-end)
-
-lsp.ensure_installed(servers)
-
-lsp.setup()
-
+-- local lsp = require("lsp-zero").preset {}
+-- local utils = require "core.utils"
+--
+-- lsp.ensure_installed(servers)
+--
+-- lsp.on_attach(function(client, bufnr)
+--   lsp.default_keymaps { buffer = bufnr }
+--
+--   if client.name == "tsserver" then
+--     client.resolved_capabilities.document_formatting = false
+--   end
+--
+--   if client.server_capabilities.signatureHelpProvider then
+--     require("nvchad_ui.signature").setup(client)
+--   end
+--
+--   utils.load_mappings("lspconfig", { buffer = bufnr })
+-- end)
+--
+-- lsp.setup()
+--
 -- --lspconfig configurations
 -- local on_attach = require("plugins.configs.lspconfig").on_attach
+-- local lspconfig = require "lspconfig"
+--
+-- for _, lspName in ipairs(servers) do
+--   lspconfig[lspName].setup {
+--     -- on_attach = on_attach,
+--     on_attach = function(client, bufnr)
+--       if client.name == "tsserver" then
+--         client.resolved_capabilities.document_formatting = false
+--       end
+--       if client.server_capabilities.signatureHelpProvider then
+--         require("nvchad_ui.signature").setup(client)
+--       end
+--       utils.load_mappings("lspconfig", { buffer = bufnr })
+--     end,
+--   }
+-- end
+require("mason").setup()
 local utils = require "core.utils"
-local lspconfig = require "lspconfig"
 
-for _, lspName in ipairs(servers) do
-  lspconfig[lspName].setup {
-    -- on_attach = on_attach,
-    on_attach = function(client, bufnr)
-      if client.name == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
-      end
-      utils.load_mappings("lspconfig", { buffer = bufnr })
-    end,
-  }
+require("mason-lspconfig").setup {
+  ensure_installed = servers,
+}
+
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lsp_attach = function(client, bufnr)
+  if client.name == "tsserver" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
+  if client.server_capabilities.signatureHelpProvider then
+    require("nvchad_ui.signature").setup(client)
+  end
+
+  utils.load_mappings("lspconfig", { buffer = bufnr })
 end
+
+local lspconfig = require "lspconfig"
+require("mason-lspconfig").setup_handlers {
+  function(server_name)
+    lspconfig[server_name].setup {
+      on_attach = lsp_attach,
+      capabilities = lsp_capabilities,
+    }
+  end,
+}
