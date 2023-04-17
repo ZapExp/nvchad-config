@@ -108,6 +108,7 @@ local plugins = {
       { "<leader>gg", "<cmd>LazyGit<cr>", desc = "open LazyGit" },
     },
   },
+  { "mrjones2014/smart-splits.nvim" },
   -- CODE HELPER FUNCTIONS
   {
     "mbbill/undotree",

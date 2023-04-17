@@ -13,6 +13,7 @@ M.general = {
     ["<C-d>"] = { "<C-d>zz0", "Move page down" },
     ["n"] = { "nzzzv", "Next search term" },
     ["N"] = { "Nzzzv", "Previous search term" },
+    ["<C-q>"] = { "<cmd>q!<cr>", "Force quit" },
   },
 }
 
@@ -20,10 +21,54 @@ M.splits = {
   n = {
     ["|"] = { "<cmd>vsplit<cr>", "Vertical Split" },
     ["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
-    ["<C-Up>"] = { "<cmd>resize -2<CR>", "Resize split up" },
-    ["<C-Down>"] = { "<cmd>resize +2<CR>", "Resize split down" },
-    ["<C-Left>"] = { "<cmd>vertical resize -2<CR>", "Resize split left" },
-    ["<C-Right>"] = { "<cmd>vertical resize +2<CR>", "Resize split right" },
+    ["<C-h>"] = {
+      function()
+        require("smart-splits").move_cursor_left()
+      end,
+      "Move to left split",
+    },
+    ["<C-j>"] = {
+      function()
+        require("smart-splits").move_cursor_down()
+      end,
+      "Move to below split",
+    },
+    ["<C-k>"] = {
+      function()
+        require("smart-splits").move_cursor_up()
+      end,
+      "Move to above split",
+    },
+    ["<C-l>"] = {
+      function()
+        require("smart-splits").move_cursor_right()
+      end,
+      "Move to right split",
+    },
+    ["<C-Up>"] = {
+      function()
+        require("smart-splits").resize_up()
+      end,
+      "Resize split up",
+    },
+    ["<C-Down>"] = {
+      function()
+        require("smart-splits").resize_down()
+      end,
+      "Resize split down",
+    },
+    ["<C-Left>"] = {
+      function()
+        require("smart-splits").resize_left()
+      end,
+      "Resize split left",
+    },
+    ["<C-Right>"] = {
+      function()
+        require("smart-splits").resize_right()
+      end,
+      "Resize split right",
+    },
   },
 }
 
