@@ -16,6 +16,17 @@ M.general = {
   },
 }
 
+M.splits = {
+  n = {
+    ["|"] = { "<cmd>vsplit<cr>", "Vertical Split" },
+    ["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
+    ["<C-Up>"] = { "<cmd>resize -2<CR>", "Resize split up" },
+    ["<C-Down>"] = { "<cmd>resize +2<CR>", "Resize split down" },
+    ["<C-Left>"] = { "<cmd>vertical resize -2<CR>", "Resize split left" },
+    ["<C-Right>"] = { "<cmd>vertical resize +2<CR>", "Resize split right" },
+  },
+}
+
 M.editing = {
   n = {
     ["<leader>d"] = { '"_d', "Void delete" },
