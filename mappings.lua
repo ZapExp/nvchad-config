@@ -13,7 +13,7 @@ M.general = {
     ["<C-d>"] = { "<C-d>zz0", "Move page down" },
     ["n"] = { "nzzzv", "Next search term" },
     ["N"] = { "Nzzzv", "Previous search term" },
-    ["<C-q>"] = { "<cmd>q!<cr>", "Force quit" },
+    -- ["<C-q>"] = { "<cmd>q!<cr>", "Force quit" },
   },
 }
 
@@ -136,4 +136,22 @@ M.Harpooon = {
     },
   },
 }
+
+M.lspconfig = {
+  n = {
+    ["<leader>q"] = {
+      function()
+        vim.diagnostic.open_float { border = "rounded" }
+      end,
+      "floating diagnostic",
+    },
+    ["<leader>Q"] = {
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      "diagnostic setloclist",
+    },
+  },
+}
+
 return M
