@@ -4,6 +4,7 @@ M.disabled = {
   n = {
     ["<leader>h"] = "",
     ["<leader>v"] = "",
+    ["s"] = "",
   },
 }
 
@@ -76,7 +77,7 @@ M.editing = {
   n = {
     ["<leader>d"] = { '"_d', "Void delete" },
     ["J"] = { "mzJ`z", "Delete endline Enter" },
-    ["<leader>s"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace current word" },
+    ["<leader>rw"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace current word" },
   },
   v = {
     ["J"] = { ":m '>+1<CR>gv=gv", "Move selected block down" },

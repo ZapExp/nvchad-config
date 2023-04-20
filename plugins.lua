@@ -102,6 +102,14 @@ local plugins = {
   --   config = function(_, opts) require("mini.indentscope").setup(opts) end,
   -- },
   {
+    "echasnovski/mini.surround",
+    version = false,
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("mini.surround").setup()
+    end,
+  },
+  {
     "kdheepak/lazygit.nvim",
     -- lazy = false,
     keys = {
