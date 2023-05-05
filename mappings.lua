@@ -8,82 +8,39 @@ M.disabled = {
   },
 }
 
-M.general = {
-  n = {
-    ["<C-u>"] = { "<C-u>zz0", "Move page up" },
-    ["<C-d>"] = { "<C-d>zz0", "Move page down" },
-    ["n"] = { "nzzzv", "Next search term" },
-    ["N"] = { "Nzzzv", "Previous search term" },
-    -- ["<C-q>"] = { "<cmd>q!<cr>", "Force quit" },
-  },
-}
-
-M.splits = {
-  n = {
-    ["|"] = { "<cmd>vsplit<cr>", "Vertical Split" },
-    ["\\"] = { "<cmd>split<cr>", "Horizontal Split" },
-    ["<C-h>"] = {
-      function()
-        require("smart-splits").move_cursor_left()
-      end,
-      "Move to left split",
-    },
-    ["<C-j>"] = {
-      function()
-        require("smart-splits").move_cursor_down()
-      end,
-      "Move to below split",
-    },
-    ["<C-k>"] = {
-      function()
-        require("smart-splits").move_cursor_up()
-      end,
-      "Move to above split",
-    },
-    ["<C-l>"] = {
-      function()
-        require("smart-splits").move_cursor_right()
-      end,
-      "Move to right split",
-    },
-    ["<C-Up>"] = {
-      function()
-        require("smart-splits").resize_up()
-      end,
-      "Resize split up",
-    },
-    ["<C-Down>"] = {
-      function()
-        require("smart-splits").resize_down()
-      end,
-      "Resize split down",
-    },
-    ["<C-Left>"] = {
-      function()
-        require("smart-splits").resize_left()
-      end,
-      "Resize split left",
-    },
-    ["<C-Right>"] = {
-      function()
-        require("smart-splits").resize_right()
-      end,
-      "Resize split right",
-    },
-  },
-}
-
 M.editing = {
   n = {
-    ["<leader>d"] = { '"_d', "Void delete" },
-    ["J"] = { "mzJ`z", "Delete endline Enter" },
-    ["<leader>rw"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace current word" },
+    ["<C-s>"] = { ":w<cr>", "Save file", opts = { silent = true } },
+    ["<C-u>"] = { "<C-u>zz0", "Scroll up", opts = { silent = true } },
+    ["<C-d>"] = { "<C-d>zz0", "Scroll down", opts = { silent = true } },
+    ["{"] = { "{zz0", "Scroll to top of screen", opts = { silent = true } },
+    ["}"] = { "}zz0", "Scroll to bottom of screen", opts = { silent = true } },
+    ["n"] = { "nzzzv", "Visually highlight current search result", opts = { silent = true } },
+    ["N"] = { "Nzzzv", "Visually highlight current search result in reverse", opts = { silent = true } },
+    ["<Esc>"] = { ":noh<CR>", "Clear search highlighting", opts = { silent = true } },
+    ["J"] = { "mzJ`z", "Join current line with next line", { silent = true } }
   },
   v = {
     ["J"] = { ":m '>+1<CR>gv=gv", "Move selected block down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "Move selected block up" },
   },
+  i = {
+    -- ["<C-b>"] = { "<ESC>^i", "Insert at beginning of line" },
+    -- ["<C-e>"] = { "<End>", "Move cursor to end of line" },
+    -- ["<C-h>"] = { "<Left>", "Move cursor left" },
+    -- ["<C-l>"] = { "<Right>", "Move cursor right" },
+    -- ["<C-j>"] = { "<Down>", "Move cursor down" },
+    -- ["<C-k>"] = { "<Up>", "Move cursor up" },
+    ["<C-s>"] = { "<esc>:w<cr>a", "Save file and return to insert mode" },
+  }
 }
+
+-- M.hop = {
+--   n = {
+--     ["ñ"] = { ":HopWord<cr>", "Hop to a word" },
+--     ["Ñ"] = { ":HopLine<cr>", "Hop to a line" },
+--   }
+-- }
 
 M.Harpooon = {
   n = {
@@ -155,4 +112,4 @@ M.lspconfig = {
   },
 }
 
-return M
+return M;
